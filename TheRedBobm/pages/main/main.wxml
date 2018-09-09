@@ -1,0 +1,23 @@
+<view class='container'>
+  <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" vertical='true' class='swiper' >
+      <block wx:for="{{images}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item}}" class='imgswiper'/>
+        </swiper-item>
+      </block>
+  </swiper>
+  <swiper class='message-board swiper' display-multiple-items='3' 
+    autoplay="true" interval="1500" duration="500" vertical='true' circular='true'>
+    <block wx:for="{{msgs}}" wx:key='{{index}}'>
+      <swiper-item class='msg-item'>
+        <image class='img' src='{{item.avator}}'></image>
+        <view class='msg'>{{item.username}}：{{item.content}}</view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='message-box tm' style="display:{{showBox?'true':'none'}}">
+    <input placeholder='留下你的祝福吧^_^!' bindinput='fnInputMessage' value="{{message}}"/>
+    <view class='btn-send' bindtap='fnSendMessage'>发送</view>
+  </view>
+</view>
